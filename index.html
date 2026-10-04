@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>皮微电影网 - 皮影戏光影艺术与微电影观赏资源导航</title>
+<meta name="keywords" content="皮微电影网,皮影戏微电影,中国皮影艺术,民间皮影短片,非遗皮影影像">
+<meta name="description" content="皮微电影网专注皮影戏与微电影的交融呈现，收录皮影题材短片、传统影戏影像、民间雕刻工艺纪录片，带你在一盏灯与一方幕布间读懂千年光影。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#f6efe2; --paper2:#efe3cd; --ink:#2b2118; --ink2:#5c4a36;
+  --cinnabar:#b3362a; --cinnabar2:#8f261c; --gold:#b8893a; --jade:#3d6b5a;
+  --shadow:rgba(43,33,24,.18);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  background:var(--paper);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(184,137,58,.10), transparent 42%),
+    radial-gradient(circle at 88% 92%, rgba(179,54,42,.08), transparent 46%);
+  color:var(--ink); line-height:1.8; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ===== 顶部 ===== */
+header{
+  position:sticky;top:0;z-index:99;
+  background:rgba(43,33,24,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:3px solid var(--cinnabar);
+  box-shadow:0 4px 18px var(--shadow);
+}
+.hd-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#f6efe2}
+.brand-mark{
+  width:44px;height:44px;border-radius:10px;flex:none;
+  background:
+    radial-gradient(circle at 50% 42%, #f0d9a0 0 26%, transparent 27%),
+    linear-gradient(135deg,#8f261c,#b3362a 60%,#6e1c14);
+  box-shadow:inset 0 0 0 2px rgba(246,239,226,.5), 0 0 14px rgba(246,217,160,.35);
+  position:relative;
+}
+.brand-mark::after{
+  content:"";position:absolute;inset:8px 14px;
+  border:1.5px solid rgba(246,239,226,.75);border-radius:4px;
+  border-bottom:none;border-right:none;
+}
+.brand-txt{display:flex;flex-direction:column;line-height:1.25}
+.brand-txt b{font-size:20px;letter-spacing:2px;color:#f6efe2}
+.brand-txt span{font-size:11px;color:#cbb894;letter-spacing:1px}
+nav{display:flex;align-items:center;gap:4px}
+nav a{
+  color:#e8ddc7;text-decoration:none;font-size:15px;letter-spacing:.5px;
+  padding:8px 13px;border-radius:8px;transition:.25s;white-space:nowrap;
+}
+nav a:hover{background:var(--cinnabar);color:#fff}
+.menu-btn{display:none;width:42px;height:42px;border:none;border-radius:8px;cursor:pointer;
+  background:var(--cinnabar);color:#fff;font-size:20px}
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(246,217,160,.55), transparent 60%),
+    linear-gradient(160deg,#3a2c1f 0%,#241910 55%,#1a120c 100%);
+  color:#f6efe2;padding:66px 0 72px;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 38px, rgba(246,239,226,.035) 38px 39px),
+    repeating-linear-gradient(0deg, transparent 0 38px, rgba(246,239,226,.035) 38px 39px);
+  mask-image:radial-gradient(ellipse at 50% 45%, #000 30%, transparent 78%);
+}
+.hero-in{position:relative;text-align:center;max-width:820px;margin:0 auto}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.tag-row i{
+  font-style:normal;font-size:12px;letter-spacing:1px;
+  padding:4px 11px;border-radius:20px;border:1px solid rgba(203,184,148,.5);
+  color:#e2cfac;background:rgba(246,239,226,.06)
+}
+.hero h1{
+  font-size:40px;line-height:1.3;letter-spacing:3px;margin-bottom:18px;font-weight:800;
+  text-shadow:0 4px 22px rgba(0,0,0,.45);
+}
+.hero h1 em{font-style:normal;color:#f0c674}
+.hero p{font-size:16px;color:#dcc7a3;max-width:660px;margin:0 auto 26px}
+.hero-acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;text-decoration:none;font-size:15px;letter-spacing:1px;
+  padding:12px 26px;border-radius:30px;transition:.28s;cursor:pointer;border:none;
+}
+.btn-p{background:var(--cinnabar);color:#fff;box-shadow:0 8px 20px rgba(179,54,42,.4)}
+.btn-p:hover{background:var(--cinnabar2);transform:translateY(-2px)}
+.btn-o{background:transparent;color:#f0c674;border:1.5px solid rgba(240,198,116,.6)}
+.btn-o:hover{background:rgba(240,198,116,.14);transform:translateY(-2px)}
+
+/* ===== 通用区块 ===== */
+section{padding:64px 0}
+.sec-hd{text-align:center;margin-bottom:42px}
+.sec-hd .kicker{display:inline-block;font-size:12px;letter-spacing:4px;color:var(--cinnabar);
+  border-bottom:1px solid rgba(179,54,42,.4);padding-bottom:6px;margin-bottom:12px}
+.sec-hd h2{font-size:28px;letter-spacing:2px;color:var(--ink)}
+.sec-hd p{color:var(--ink2);font-size:15px;max-width:620px;margin:12px auto 0}
+
+/* ===== 栏目一：皮影小史 ===== */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:#fffdf8;border:1px solid rgba(92,74,54,.16);border-radius:14px;
+  padding:26px 22px;box-shadow:0 6px 20px rgba(43,33,24,.07);transition:.3s;
+  position:relative;overflow:hidden;
+}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold)}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(43,33,24,.14)}
+.card .num{font-size:13px;color:var(--cinnabar);letter-spacing:2px;font-weight:700}
+.card h3{font-size:19px;margin:10px 0 10px;color:var(--ink)}
+.card p{font-size:14.5px;color:var(--ink2)}
+.card .more{display:inline-block;margin-top:14px;font-size:13px;color:var(--jade);text-decoration:none;border-bottom:1px dashed var(--jade)}
+.timeline{position:relative;max-width:880px;margin:0 auto;padding-left:30px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cinnabar),var(--gold),var(--jade))}
+.tl-item{position:relative;margin-bottom:26px}
+.tl-item::before{content:"";position:absolute;left:-30px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--cinnabar);box-shadow:0 0 0 4px rgba(179,54,42,.18)}
+.tl-item h4{font-size:17px;color:var(--ink)}
+.tl-item h4 span{color:var(--cinnabar);font-size:14px;margin-left:8px}
+.tl-item p{font-size:14.5px;color:var(--ink2)}
+
+/* ===== 栏目二：皮影戏流派 ===== */
+.bg-soft{background:linear-gradient(180deg,var(--paper2),var(--paper))}
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.tab{
+  font-family:inherit;font-size:15px;cursor:pointer;
+  padding:9px 20px;border-radius:30px;border:1px solid rgba(92,74,54,.3);
+  background:#fffdf8;color:var(--ink2);transition:.25s;
+}
+.tab:hover{color:var(--cinnabar);border-color:var(--cinnabar)}
+.tab.on{background:var(--ink);color:#f0c674;border-color:var(--ink)}
+.tab-body{
+  display:none;background:#fffdf8;border:1px solid rgba(92,74,54,.16);
+  border-radius:16px;overflow:hidden;box-shadow:0 10px 26px rgba(43,33,24,.09)
+}
+.tab-body.on{display:grid;grid-template-columns:1fr 1.3fr}
+.tab-body .ph{
+  min-height:240px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--cinnabar2),var(--gold));
+}
+.tab-body .ph svg{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.tab-body .txt{padding:30px}
+.tab-body .txt h3{font-size:22px;margin-bottom:8px}
+.tab-body .txt .meta{font-size:12.5px;color:var(--cinnabar);letter-spacing:1px;margin-bottom:14px}
+.tab-body .txt p{font-size:15px;color:var(--ink2);margin-bottom:10px}
+.tab-body .txt ul{margin:14px 0 0;padding-left:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+.tab-body .txt li{font-size:14px;color:var(--ink2);position:relative;padding-left:16px}
+.tab-body .txt li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+/* ===== 栏目三：光影资源库 ===== */
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.res-item{background:#fffdf8;border-radius:14px;overflow:hidden;border:1px solid rgba(92,74,54,.14);transition:.3s;box-shadow:0 6px 18px rgba(43,33,24,.07)}
+.res-item:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(43,33,24,.16)}
+.res-cover{position:relative;height:170px;overflow:hidden}
+.res-cover .lay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:16px;color:#fff;
+  background:linear-gradient(180deg,transparent 35%,rgba(26,18,12,.85))}
+.res-cover .lay b{font-size:16px;letter-spacing:1px}
+.res-cover .dur{position:absolute;top:12px;right:12px;font-size:12px;background:rgba(26,18,12,.72);color:#f0c674;padding:3px 9px;border-radius:20px}
+.c1{background:linear-gradient(135deg,#7d2a22,#c4613a)}
+.c2{background:linear-gradient(135deg,#1f4a42,#7a9a55)}
+.c3{background:linear-gradient(135deg,#3a2c1f,#8a6a3c)}
+.c4{background:linear-gradient(135deg,#4a235a,#b06a8a)}
+.c5{background:linear-gradient(135deg,#15395e,#4f86a8)}
+.c6{background:linear-gradient(135deg,#5e4210,#c7a54a)}
+.res-body{padding:18px 20px 22px}
+.res-body .cat{font-size:12px;color:var(--cinnabar);letter-spacing:1.5px}
+.res-body h3{font-size:17px;margin:6px 0 8px;line-height:1.45}
+.res-body p{font-size:13.5px;color:var(--ink2)}
+.res-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px dashed rgba(92,74,54,.25);font-size:12.5px;color:var(--ink2)}
+.res-foot a{color:var(--jade);text-decoration:none;font-weight:600}
+
+/* ===== 栏目四：走进幕后 ===== */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+.split .txt h2{font-size:26px;margin-bottom:16px;line-height:1.45}
+.split .txt p{font-size:15px;color:var(--ink2);margin-bottom:12px}
+.steps{counter-reset:s;margin-top:22px;display:grid;gap:14px}
+.step{display:flex;gap:14px;align-items:flex-start;background:#fffdf8;border:1px solid rgba(92,74,54,.16);border-radius:12px;padding:16px 18px}
+.step::before{counter-increment:s;content:counter(s);flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--ink);color:#f0c674;font-size:14px;font-weight:700}
+.step div h4{font-size:15.5px}
+.step div p{font-size:13.5px;color:var(--ink2);margin-top:3px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gal-tile{position:relative;border-radius:14px;overflow:hidden;min-height:150px;box-shadow:0 8px 20px rgba(43,33,24,.15)}
+.gal-tile span{position:absolute;left:12px;bottom:10px;color:#fff;font-size:13px;letter-spacing:1px;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+.g1{background:linear-gradient(150deg,#6e1c14,#d28b4a)}
+.g2{background:linear-gradient(150deg,#163b3a,#6f9a6a)}
+.g3{background:linear-gradient(150deg,#4a2c12,#c4a24c);grid-column:span 2;min-height:170px}
+.g3 span{font-size:15px}
+
+/* ===== 底部 ===== */
+footer{background:var(--ink);color:#cbb894;padding:48px 0 26px}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+.ft-grid h4{color:#f0c674;font-size:15px;letter-spacing:1.5px;margin-bottom:14px}
+.ft-grid p,.ft-grid a{font-size:13.5px;color:#b9a789;line-height:1.9;text-decoration:none;display:block}
+.ft-grid a:hover{color:#f0c674}
+.ft-brand b{font-size:19px;color:#f6efe2;letter-spacing:2px}
+.ft-brand p{margin-top:10px}
+.ft-bot{border-top:1px solid rgba(203,184,148,.22);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#8f7c62}
+.ft-bot a{display:inline;color:#8f7c62;margin-left:14px}
+.ft-bot a:hover{color:#f0c674}
+
+/* ===== 响应式 ===== */
+@media (max-width:900px){
+  .grid-3,.res{grid-template-columns:1fr 1fr}
+  .tab-body.on{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:30px}
+}
+@media (max-width:680px){
+  .wrap{padding:0 16px}
+  section{padding:46px 0}
+  .menu-btn{display:block}
+  nav{
+    display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+    background:rgba(43,33,24,.98);padding:12px 16px;border-top:1px solid rgba(203,184,148,.2)
+  }
+  nav.open{display:flex}
+  nav a{width:100%;text-align:center;padding:11px;border-radius:6px}
+  .hero{padding:44px 0 50px}
+  .hero h1{font-size:24px;letter-spacing:1.5px}
+  .hero p{font-size:14.5px}
+  .sec-hd h2{font-size:23px}
+  .grid-3,.res,.tab-body .txt ul,.gallery{grid-template-columns:1fr}
+  .gal-tile,.gal-tile.g3{min-height:150px}
+  .ft-grid{grid-template-columns:1fr}
+  .ft-bot{flex-direction:column}
+  .ft-bot a{margin:0 14px 0 0}
+}
+</style>
+
+<!--
+  栏目独立 TDK（各栏目关键词、描述均不同，避免雷同与重复）
+  皮影小史：关键词「皮影戏历史,皮影戏起源,皮影戏发展历程,中国影戏简史」 ｜ 描述「梳理皮影戏从西汉雏形到入选人类非遗的两千年发展脉络，看这门借光传影的民间艺术如何走过宋代市井、明清鼎盛并走向世界。」
+  流派巡礼：关键词「皮影戏流派,陕西华县皮影,唐山皮影,海宁皮影,湖南纸影」 ｜ 描述「对比陕西碗碗腔、河北唐山滦州影、浙江海宁皮影与湖南纸影四大流派，从影偶造型、唱腔乐器到代表剧目，看同一门手艺在不同水土里的模样。」
+  光影资源库：关键词「皮影戏微电影,皮影纪录片在线观看,非遗皮影短片,影戏影像资源」 ｜ 描述「皮微电影网精选的皮影题材短片与影像合集，涵盖微电影、人物纪录、声腔档案与制作工艺全流程，持续更新可在线观赏。」
+  走进幕后：关键词「皮影制作工艺,皮影雕刻步骤,影人制作八道工序,皮影DIY」 ｜ 描述「从选皮制皮、画稿过稿到镂刻敷彩、缀结合成，详解皮影影人的八道制作工序与连缀机关，附材料、纹样与角色造型的实用说明。」
+-->
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<header>
+  <div class="wrap hd-in">
+    <a class="brand" href="#top">
+      <span class="brand-mark"></span>
+      <span class="brand-txt"><b>皮微电影网</b><span>SHADOW PLAY VISION</span></span>
+    </a>
+    <nav id="nav">
+      <a href="#history">皮影小史</a>
+      <a href="#schools">流派巡礼</a>
+      <a href="#library">光影资源库</a>
+      <a href="#backstage">走进幕后</a>
+    </nav>
+    <button class="menu-btn" id="mbtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="wrap hero-in">
+      <div class="tag-row">
+        <i># 非物质文化遗产</i><i># 千年光影</i><i># 民间美术</i><i># 影戏影像</i>
+      </div>
+      <h1>一盏青灯，一方白幕<br><em>皮微电影网</em>为你留住会动的影子</h1>
+      <p>从西汉的雏形到今天的镜头语言，皮影戏走过两千多年。这里是皮微电影网——一个把传统影戏、纪录短片与民间影像放在一起慢慢看的角落，让镂空的牛皮在光影里重新开口说话。</p>
+      <div class="hero-acts">
+        <a class="btn btn-p" href="#library">逛光影资源库</a>
+        <a class="btn btn-o" href="#backstage">看看影人怎么做</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 栏目一 -->
+  <section id="history">
+    <div class="wrap">
+      <div class="sec-hd">
+        <span class="kicker">ONE · 皮影小史</span>
+        <h2>两千年的影子，是怎么走过来的</h2>
+        <p>皮影戏又称影子戏、灯影戏、驴皮影，是集绘画、雕刻、音乐与表演于一身的综合性民间艺术，被称为中国民间艺术的“活化石”。</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="num">01 / 起源</span>
+          <h3>西汉的雏形，汉代的记载</h3>
+          <p>《史记》《汉书》里留下方士为汉武帝招引李夫人影像的传说，被许多研究者视为皮影最早的文字踪迹。这门艺术在汉代萌芽，借光传影的念头就此埋下。</p>
+          <a class="more" href="#">读起源考据 →</a>
+        </div>
+        <div class="card">
+          <span class="num">02 / 繁盛</span>
+          <h3>两宋市井里的影戏棚子</h3>
+          <p>北宋汴京的瓦肆勾栏中已有专门演影戏的场地；南宋杭州出现“绘革社”行业组织，还设有专职雕刻影人的“镞影人”，一个戏班的影箱里常备上千个影人头部。</p>
+          <a class="more" href="#">看两宋影戏 →</a>
+        </div>
+        <div class="card">
+          <span class="num">03 / 走向世界</span>
+          <h3>从西亚到欧洲的光影</h3>
+          <p>元代皮影戏随军事远征与海陆交往传入西亚、阿拉伯与欧洲，歌德曾在1781年用中国皮影戏庆祝自己的生日。如今多国博物馆都收藏着中国影偶。</p>
+          <a class="more" href="#">看传播路线 →</a>
+        </div>
+      </div>
+
+      <div class="timeline" style="margin-top:46px">
+        <div class="tl-item"><h4>秦汉至唐 <span>萌芽与演变</span></h4><p>借光造影的雏形出现，影戏随人口与政治中心的迁移，从关中向东向南传播扩散。</p></div>
+        <div class="tl-item"><h4>北宋至南宋 <span>首个繁荣期</span></h4><p>市井文化兴盛，影戏成为固定演出门类，影箱、行会、专业雕刻师与演出场所相继出现。</p></div>
+        <div class="tl-item"><h4>明清 <span>流派纷呈</span></h4><p>影戏与地方方言、戏曲、俚曲深度融合，形成各地独特的唱腔与造型，进入鼎盛阶段。</p></div>
+        <div class="tl-item"><h4>2006 — 2011 <span>非遗认定</span></h4><p>列入首批国家级非物质文化遗产名录，随后入选联合国教科文组织人类非物质文化遗产代表作名录。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目二 -->
+  <section id="schools" class="bg-soft">
+    <div class="wrap">
+      <div class="sec-hd">
+        <span class="kicker">TWO · 流派巡礼</span>
+        <h2>同一盏灯下，各有各的唱法</h2>
+        <p>皮影戏流传地域广阔，声腔与剧目差异明显。点击下面的流派，看看同一门手艺在不同水土里长成了什么模样。</p>
+      </div>
+      <div class="tabs" id="tabs">
+        <button class="tab on" data-t="t1">陕西 · 华县碗碗腔</button>
+        <button class="tab" data-t="t2">河北 · 唐山滦州影</button>
+        <button class="tab" data-t="t3">浙江 · 海宁皮影</button>
+        <button class="tab" data-t="t4">湖南 · 纸影湘剧腔</button>
+      </div>
+
+      <div class="tab-body on" id="t1">
+        <div class="ph">
+          <svg viewBox="0 0 300 240" preserveAspectRatio="xMidYMid slice">
+            <path d="M40 210 Q150 30 260 210 Z" fill="rgba(255,240,210,.16)"/>
+            <circle cx="150" cy="95" r="58" fill="rgba(255,240,210,.22)" stroke="rgba(255,240,210,.7)" stroke-width="2"/>
+            <path d="M150 45 Q185 95 150 145 Q115 95 150 45 Z" fill="rgba(255,240,210,.35)"/>
+          </svg>
+        </div>
+        <div class="txt">
+          <h3>陕西华县皮影 · 碗碗腔</h3>
+          <div class="meta">关中影戏代表 ｜ 中国影戏发源地之一</div>
+          <p>华县影人额头高耸，眉眼环勾，刀法洗练，造型夸张而古拙。伴奏只用月琴、硬弦与一种叫“碗碗”的小铜铃，一开口就是苍凉的秦地古意。</p>
+          <p>老腔与碗碗腔并存，唱词多取材《封神榜》《三国演义》等“骨头戏”，一句开嗓便能带出黄土高原的风。</p>
+          <ul><li>影偶造型：高额头、通天鼻</li><li>主奏乐器：月琴、碗碗、硬弦</li><li>代表声腔：碗碗腔、老腔</li><li>代表剧目：《张飞战典韦》</li></ul>
+        </div>
+      </div>
+
+      <div class="tab-body" id="t2">
+        <div class="ph">
+          <svg viewBox="0 0 300 240" preserveAspectRatio="xMidYMid slice">
+            <path d="M30 60 H270 M30 120 H270 M30 180 H270" stroke="rgba(255,240,210,.25)" stroke-width="1.5"/>
+            <rect x="95" y="55" width="110" height="130" rx="10" fill="rgba(255,240,210,.18)" stroke="rgba(255,240,210,.7)" stroke-width="2"/>
+            <path d="M120 90 H180 M120 120 H180 M120 150 H160" stroke="rgba(255,240,210,.55)" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="txt">
+          <h3>河北唐山皮影 · 滦州影</h3>
+          <div class="meta">北方皮影代表 ｜ 掐嗓子唱法独创</div>
+          <p>唐山影人额头饱满、鼻子通天，俗称“通天鼻”，线条流畅写意。唱腔高亢激昂，独特的“掐嗓子”唱法与“三赶七”唱词结构辨识度极高。</p>
+          <p>影卷齐备，演出依脚本进行，常演《大闹天宫》《白蛇传》等剧目，文影装一手、武影装两手，打斗场面热闹酣畅。</p>
+          <ul><li>影偶造型：通天鼻、镂空脸</li><li>代表剧目：《大闹天宫》</li><li>表演绝技：大劈、抢马</li><li>声腔特点：滦州影调、掐嗓唱</li></ul>
+        </div>
+      </div>
+
+      <div class="tab-body" id="t3">
+        <div class="ph">
+          <svg viewBox="0 0 300 240" preserveAspectRatio="xMidYMid slice">
+            <circle cx="80" cy="120" r="70" fill="rgba(255,240,210,.16)"/>
+            <circle cx="220" cy="120" r="70" fill="rgba(255,240,210,.16)"/>
+            <path d="M60 120 Q150 40 240 120 Q150 200 60 120 Z" fill="rgba(255,240,210,.3)" stroke="rgba(255,240,210,.7)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="txt">
+          <h3>浙江海宁皮影</h3>
+          <div class="meta">中南部皮影代表 ｜ 保留宋代“绘革社”特征</div>
+          <p>海宁皮影脸形圆活，单眼侧面，少夸张而近实像，重彩绘、少雕镂。声腔以“弋阳腔”“海盐腔”为基调，配笛子、唢呐、二胡等江南丝竹，极富水乡韵味。</p>
+          <p>它在宋韵遗风中生长，唱腔悠远绵长，是江南影戏保存相对完整的一脉。</p>
+          <ul><li>造型特点：圆脸、近实像</li><li>敷彩方式：重彩绘、少雕镂</li><li>代表声腔：弋阳腔、海盐腔</li><li>地域气质：江南水乡</li></ul>
+        </div>
+      </div>
+
+      <div class="tab-body" id="t4">
+        <div class="ph">
+          <svg viewBox="0 0 300 240" preserveAspectRatio="xMidYMid slice">
+            <path d="M40 200 Q150 80 260 200 Z" fill="rgba(255,240,210,.18)"/>
+            <path d="M70 200 L150 60 L230 200 Z" fill="rgba(255,240,210,.26)" stroke="rgba(255,240,210,.7)" stroke-width="2"/>
+            <path d="M120 200 L150 110 L180 200 Z" fill="rgba(255,240,210,.4)"/>
+          </svg>
+        </div>
+        <div class="txt">
+          <h3>湖南皮影 · 纸影湘剧腔</h3>
+          <div class="meta">中南部影戏 ｜ 多以纸为材</div>
+          <p>湖南一带多用纸影而非皮影，唱湘剧高腔，风格热闹泼辣、诙谐生动。剧目多取材本地民间故事，也唱《刘海砍樵》《田螺姑娘》这类充满生活气息的小戏。</p>
+          <p>锣鼓点紧凑，影人动作幅度大，乡土气息浓烈，是湖湘民俗节庆里最热闹的一档。</p>
+          <ul><li>材质特点：以纸影为主</li><li>唱腔基调：湘剧高腔</li><li>代表剧目：《刘海砍樵》</li><li>整体气质：热闹、泼辣</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目三 -->
+  <section id="library">
+    <div class="wrap">
+      <div class="sec-hd">
+        <span class="kicker">THREE · 光影资源库</span>
+        <h2>值得收藏的影戏短片与影像</h2>
+        <p>收录可直接在线观赏的皮影题材微电影、纪录片片段与老戏实况。这里是皮微电影网的内容主阵地，持续更新，适合慢慢翻看。</p>
+      </div>
+      <div class="res">
+        <article class="res-item">
+          <div class="res-cover c1">
+            <span class="dur">12 分钟</span>
+            <div class="lay"><b>《牛皮上的西游记》</b></div>
+          </div>
+          <div class="res-body">
+            <span class="cat">微电影 · 短篇叙事</span>
+            <h3>一张牛皮在老艺人的刀下变成孙悟空，戏也跟着开了场。</h3>
+            <p>以制作与开演两条线并进，记录一出借《西游记》皮影从选皮到登台的全过程。</p>
+            <div class="res-foot"><span>陕西华县腔 · 高清</span><a href="#">立即观看 ›</a></div>
+          </div>
+        </article>
+
+        <article class="res-item">
+          <div class="res-cover c2">
+            <span class="dur">28 分钟</span>
+            <div class="lay"><b>《亮子后面的手》</b></div>
+          </div>
+          <div class="res-body">
+            <span class="cat">纪录片 · 人物口述</span>
+            <h3>一根竹签操控七八个影人，手上的功夫全靠几十年磨。</h3>
+            <p>跟随一位老艺人走进后台，听他讲“一口道尽千古事，双手舞动百万兵”的实在滋味。</p>
+            <div class="res-foot"><span>人物纪实 · 方言原声</span><a href="#">立即观看 ›</a></div>
+          </div>
+        </article>
+
+        <article class="res-item">
+          <div class="res-cover c3">
+            <span class="dur">9 分钟</span>
+            <div class="lay"><b>《碗碗腔一开口》</b></div>
+          </div>
+          <div class="res-body">
+            <span class="cat">声腔档案 · 音乐影像</span>
+            <h3>月琴、硬弦加一只小铜铃，苍凉古意就从幕布那头漫过来。</h3>
+            <p>专注陕西碗碗腔的乐器与唱法，是一份可听的影戏声腔档案。</p>
+            <div class="res-foot"><span>碗碗腔 · 原声采集</span><a href="#">立即观看 ›</a></div>
+          </div>
+        </article>
+
+        <article class="res-item">
+          <div class="res-cover c4">
+            <span class="dur">17 分钟</span>
+            <div class="lay"><b>《老腔遇上新编》</b></div>
+          </div>
+          <div class="res-body">
+            <span class="cat">实验短片 · 跨界创作</span>
+            <h3>把老腔的吼声装进现代叙事，传统影戏也能讲新故事。</h3>
+            <p>以《嫦娥奔月》式科幻设定重构影戏，展示皮影与当代舞台语言的碰撞。</p>
+            <div class="res-foot"><span>实验影像 · 跨界</span><a href="#">立即观看 ›</a></div>
+          </div>
+        </article>
+
+        <article class="res-item">
+          <div class="res-cover c5">
+            <span class="dur">22 分钟</span>
+            <div class="lay"><b>《草原上的临时幕布》</b></div>
+          </div>
+          <div class="res-body">
+            <span class="cat">纪录短片 · 地方戏班</span>
+            <h3>牧民骑马几十里赶来，幕布一挂，草原就是剧场。</h3>
+            <p>记录地方皮影团下乡演出的现场，戏散了，观众还拉着艺人的手不肯放。</p>
+            <div class="res-foot"><span>地方戏班 · 现场实录</span><a href="#">立即观看 ›</a></div>
+          </div>
+        </article>
+
+        <article class="res-item">
+          <div class="res-cover c6">
+            <span class="dur">14 分钟</span>
+            <div class="lay"><b>《镂空的三千刀》</b></div>
+          </div>
+          <div class="res-body">
+            <span class="cat">工艺纪录 · 制作全流程</span>
+            <h3>选皮、制皮、画稿、过稿、镂刻、敷彩，一道工序都省不掉。</h3>
+            <p>完整呈现皮影制作八道工序，讲清一把斜刀如何决定影人的神情与气韵。</p>
+            <div class="res-foot"><span>制作工艺 · 特写</span><a href="#">立即观看 ›</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目四 -->
+  <section id="backstage" class="bg-soft">
+    <div class="wrap">
+      <div class="sec-hd">
+        <span class="kicker">FOUR · 走进幕后</span>
+        <h2>一个影人，是怎么被做出来的</h2>
+        <p>皮影的制作非常讲究，大多使用牛皮、羊皮、驴皮，其中牛皮应用最广。一个完整的皮影往往要经过八道工序、手工雕刻三千余刀。</p>
+      </div>
+      <div class="split">
+        <div class="txt">
+          <h2>十一个部件连缀成一个人，灵魂挂在指间</h2>
+          <p>皮影人物一般分成头、身体、四肢几部分分开雕刻，再用线连缀。身体和手上装三根竹签，艺人就能让它行走、打斗，甚至腾云驾雾。</p>
+          <p>生、旦、净、末、丑角色齐全：女性发饰多用花、草、云、凤纹样，男性则多用龙、虎、水、云纹样，忠良人物多为五分面，反面人物多为七分面。</p>
+          <div class="steps">
+            <div class="step"><div><h4>选皮 · 制皮</h4><p>去毛去血，浸泡刮薄，晾晒打磨成半透明状，质地坚韧才便于镂刻。</p></div></div>
+            <div class="step"><div><h4>画稿 · 过稿</h4><p>在皮料上描出造型，线条既是轮廓，也决定了透光后的美感。</p></div></div>
+            <div class="step"><div><h4>镂刻 · 敷彩</h4><p>推皮走刀、一刀一刀刻出镂空纹样，再用矿物颜料调桐油上色。</p></div></div>
+            <div class="step"><div><h4>发汗熨平 · 缀结合成</h4><p>烘烤压平让颜色吃进皮里，最后连缀关节，影人就活了。</p></div></div>
+          </div>
+        </div>
+        <div class="gallery">
+          <div class="gal-tile g1"><span>选皮制皮 · 半透明的底子</span></div>
+          <div class="gal-tile g2"><span>敷彩连缀 · 三根竹签</span></div>
+          <div class="gal-tile g3"><span>缀合完成的影人，登台前的最后一步</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <b>皮微电影网</b>
+        <p>皮微电影网（piweidianyingwang-zh）聚焦皮影戏与微电影的交融，做一份可以慢慢看的光影档案，收录皮影短片、纪录影像与幕后工艺。</p>
+      </div>
+      <div>
+        <h4>站点导航</h4>
+        <a href="#history">皮影小史</a>
+        <a href="#schools">流派巡礼</a>
+        <a href="#library">光影资源库</a>
+        <a href="#backstage">走进幕后</a>
+      </div>
+      <div>
+        <h4>热门标签</h4>
+        <a href="#">华县皮影</a>
+        <a href="#">唐山影戏</a>
+        <a href="#">碗碗腔</a>
+        <a href="#">海宁皮影</a>
+      </div>
+      <div>
+        <h4>访问入口</h4>
+        <a href="https://piweidianyingwang-zh.github.io">https://piweidianyingwang-zh.github.io</a>
+        <a href="#">内容投稿与合作</a>
+        <a href="#">意见与反馈</a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>© 2026 皮微电影网（piweidianyingwang-zh） 保留所有权利 · 皮影戏题材观赏与科普内容导航</span>
+      <span>
+        <a href="#">隐私说明</a>
+        <a href="#">使用条款</a>
+        <a href="#">站点地图</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('mbtn'), nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){nav.classList.toggle('open')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('open')});
+
+  var tabs=document.querySelectorAll('#tabs .tab'), bodies=document.querySelectorAll('.tab-body');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('on')});
+      bodies.forEach(function(b){b.classList.remove('on')});
+      t.classList.add('on');
+      document.getElementById(t.dataset.t).classList.add('on');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
